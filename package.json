@@ -1,0 +1,24 @@
+{
+  "name": "dc24v7x604_tranthanhduy_backend_1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1#readme",
+  "bugs": {
+    "url": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1.git"
+  },
+  "license": "ISC",
+  "author": "Duy Tran",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
