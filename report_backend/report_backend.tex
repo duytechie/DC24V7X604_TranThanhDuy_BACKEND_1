@@ -64,6 +64,9 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+% Use "Picture" instead of "Figure" (for List of pictures too)
+\renewcommand{\figurename}{Picture}
+
 \begin{document}
 
 % ============================================================
@@ -112,11 +115,26 @@
 \section{Heading 1 Placeholder}
 This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
 
-This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
 \subsection{Heading 2 Placeholder}
 Add your section text here. You can describe the system architecture, API design, database schema, or deployment notes.
 
-Add your section text here. You can describe the system architecture, API design, database schema, or deployment notes.
+\begin{figure}[h]
+  \centering
+  \IfFileExists{img1.png}{%
+    \includegraphics[width=0.9\textwidth]{img1.png}%
+  }{%
+    \IfFileExists{img1.jpg}{%
+      \includegraphics[width=0.9\textwidth]{img1.jpg}%
+    }{%
+      \IfFileExists{img1.pdf}{%
+        \includegraphics[width=0.9\textwidth]{img1.pdf}%
+      }{%
+        \fbox{\parbox{0.9\textwidth}{\centering Place `img1.png` / `img1.jpg` / `img1.pdf` in `report_backend/`}}%
+      }%
+    }%
+  }
+  \caption{Git commit}
+\end{figure}
 
 \subsubsection{Heading 3 Placeholder}
 Add more detail here. For example, explain request/response formats, validation rules, and error handling.
