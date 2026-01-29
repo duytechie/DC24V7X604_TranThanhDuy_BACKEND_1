@@ -67,6 +67,13 @@
 % Use "Picture" instead of "Figure" (for List of pictures too)
 \renewcommand{\figurename}{Picture}
 
+% Clickable TOC/LoF + PDF outline (works in macOS Preview)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  bookmarksopen=true,
+  bookmarksnumbered=true
+}
+
 \begin{document}
 
 % ============================================================
@@ -101,8 +108,12 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
+\phantomsection
+\pdfbookmark[1]{Table of Contents}{toc}
 \tableofcontents
 \clearpage
+\phantomsection
+\pdfbookmark[1]{List of Pictures}{lof}
 \listoffigures
 \clearpage
 
