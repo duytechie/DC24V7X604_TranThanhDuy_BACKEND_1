@@ -1,0 +1,164 @@
+\documentclass[a4paper,12pt]{article}
+
+% -------------------- Page setup --------------------
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3.5cm,right=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{fix-cm} % avoid font-size substitution warnings at 13pt
+\usepackage{indentfirst} % indent first paragraph after headings
+
+% -------------------- Font: Times New Roman --------------------
+% Compile with XeLaTeX (recommended on macOS) so system fonts work.
+\usepackage{iftex}
+\ifPDFTeX
+  % Fallback if someone compiles with pdfLaTeX (won't be Times New Roman).
+  \usepackage[T1]{fontenc}
+  \usepackage{newtxtext,newtxmath}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Times New Roman}
+\fi
+
+% -------------------- TOC / section formatting --------------------
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% Normal style: 13pt (override class defaults)
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{13pt}{16pt}}
+\makeatother
+\AtBeginDocument{\normalsize}
+\setstretch{1.5}
+\setlength{\parindent}{0.5cm} % first-line indent for normal text
+\setlength{\parskip}{0pt}     % keep only first-line indentation (no extra space)
+
+% Headings without extra packages (BasicTeX-friendly)
+% Heading 1: 16pt, bold, centered
+% Heading 2: 13pt, bold, left
+% Heading 3: 13pt, bold, left
+% Heading 4: 13pt, italic, left
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-3.5ex\@plus -1ex\@minus -.2ex}%
+  {2.3ex\@plus.2ex}%
+  {\centering\normalfont\bfseries\fontsize{16}{19}\selectfont}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex\@minus -.2ex}%
+  {1.5ex\@plus.2ex}%
+  {\raggedright\normalfont\bfseries\fontsize{13}{16}\selectfont}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-3.25ex\@plus -1ex\@minus -.2ex}%
+  {1.5ex\@plus.2ex}%
+  {\raggedright\normalfont\bfseries\fontsize{13}{16}\selectfont}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {1.75ex\@plus 1ex\@minus .2ex}%
+  {1em}%
+  {\raggedright\normalfont\itshape\fontsize{13}{16}\selectfont}}
+\makeatother
+
+% -------------------- Page numbering (bottom-center) --------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Use "Picture" instead of "Figure" (for List of pictures too)
+\renewcommand{\figurename}{Picture}
+
+% Clickable TOC/LoF + PDF outline (works in macOS Preview)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  bookmarksopen=true,
+  bookmarksnumbered=true
+}
+
+\begin{document}
+
+% ============================================================
+% Section 1: Front thesis (no page number)
+% ============================================================
+\pagenumbering{gobble}
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\bfseries\fontsize{16}{19}\selectfont THESIS TITLE PLACEHOLDER\par}
+\vspace{1.5cm}
+
+{\fontsize{13}{16}\selectfont
+\textbf{Student:} YOUR NAME HERE\par
+\vspace{0.4cm}
+\textbf{Student ID:} YOUR ID HERE\par
+\vspace{0.4cm}
+\textbf{Program:} PROGRAM NAME\par
+\vspace{0.4cm}
+\textbf{Supervisor:} SUPERVISOR NAME\par
+}
+
+\vfill
+{\fontsize{13}{16}\selectfont City -- Year\par}
+\end{titlepage}
+
+% ============================================================
+% Section 2: Table of contents + List of pictures (Roman numerals)
+% ============================================================
+\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\phantomsection
+\pdfbookmark[1]{Table of Contents}{toc}
+\tableofcontents
+\clearpage
+\phantomsection
+\pdfbookmark[1]{List of Pictures}{lof}
+\listoffigures
+\clearpage
+
+% ============================================================
+% Section 3: Sample page with 4 headers (Arabic numerals)
+% ============================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Heading 1 Placeholder}
+This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
+
+\subsection{Heading 2 Placeholder}
+Add your section text here. You can describe the system architecture, API design, database schema, or deployment notes.
+
+\begin{figure}[h]
+  \centering
+  \IfFileExists{img1.png}{%
+    \includegraphics[width=0.9\textwidth]{img1.png}%
+  }{%
+    \IfFileExists{img1.jpg}{%
+      \includegraphics[width=0.9\textwidth]{img1.jpg}%
+    }{%
+      \IfFileExists{img1.pdf}{%
+        \includegraphics[width=0.9\textwidth]{img1.pdf}%
+      }{%
+        \fbox{\parbox{0.9\textwidth}{\centering Place `img1.png` / `img1.jpg` / `img1.pdf` in `report_backend/`}}%
+      }%
+    }%
+  }
+  \caption{Git commit}
+\end{figure}
+
+\subsubsection{Heading 3 Placeholder}
+Add more detail here. For example, explain request/response formats, validation rules, and error handling.
+
+\paragraph{Heading 4 Placeholder}
+Add a short paragraph here. This heading is italic per your requirement.
+
+% Optional sample figure to populate "List of pictures"
+% \begin{figure}[h]
+%   \centering
+%   \fbox{\parbox{0.8\textwidth}{\centering Figure Placeholder}}
+%   \caption{Sample figure caption}
+% \end{figure}
+
+\end{document}
+

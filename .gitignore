@@ -1,1 +1,7 @@
 node_modules/
+*.aux
+*.lof
+*.log
+*.pdf
+*.toc
+*.out
