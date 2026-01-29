@@ -5,6 +5,7 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{fix-cm} % avoid font-size substitution warnings at 13pt
+\usepackage{indentfirst} % indent first paragraph after headings
 
 % -------------------- Font: Times New Roman --------------------
 % Compile with XeLaTeX (recommended on macOS) so system fonts work.
@@ -28,6 +29,8 @@
 \makeatother
 \AtBeginDocument{\normalsize}
 \setstretch{1.2}
+\setlength{\parindent}{0.5cm} % first-line indent for normal text
+\setlength{\parskip}{0pt}     % keep only first-line indentation (no extra space)
 
 % Headings without extra packages (BasicTeX-friendly)
 % Heading 1: 16pt, bold, centered
@@ -109,7 +112,10 @@
 \section{Heading 1 Placeholder}
 This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
 
+This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
 \subsection{Heading 2 Placeholder}
+Add your section text here. You can describe the system architecture, API design, database schema, or deployment notes.
+
 Add your section text here. You can describe the system architecture, API design, database schema, or deployment notes.
 
 \subsubsection{Heading 3 Placeholder}
