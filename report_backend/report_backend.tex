@@ -4,6 +4,7 @@
 \usepackage[a4paper,top=3cm,bottom=3cm,left=3.5cm,right=2cm]{geometry}
 \usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{caption} % caption styling (italic, label font, etc.)
 \usepackage{fix-cm} % avoid font-size substitution warnings at 13pt
 \usepackage{indentfirst} % indent first paragraph after headings
 
@@ -67,6 +68,9 @@
 % Use "Picture" instead of "Figure" (for List of pictures too)
 \renewcommand{\figurename}{Picture}
 
+% Italic captions (label bold, caption text italic)
+\captionsetup{labelfont=bf,textfont=it}
+
 % Clickable TOC/LoF + PDF outline (works in macOS Preview)
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -123,7 +127,7 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-\section{Heading 1 Placeholder}
+\section{BACKEND 1}
 This is placeholder body text for your backend report. Replace it with your introduction or overview content. The entire document uses Times New Roman with a normal font size of 13pt.
 
 \subsection{Heading 2 Placeholder}
