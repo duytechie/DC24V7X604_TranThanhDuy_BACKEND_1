@@ -5,3 +5,5 @@ node_modules/
 *.pdf
 *.toc
 *.out
+
+.DS_Store
